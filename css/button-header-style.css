@@ -1,0 +1,31 @@
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+
+.slide {
+  --color: #183602;
+  --hover: #183602;
+}
+
+button {
+  color: var(--color);
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: .5em;
+  padding: .5em 1em;
+  font-size: 1.5vw;
+  white-space: nowrap;
+}
