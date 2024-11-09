@@ -26,7 +26,7 @@
     position: absolute;
     top: 10px;
     right: 20px;
-    font-size: 24px;
+    font-size: 25px;
     cursor: pointer;
 }
 
@@ -35,7 +35,24 @@
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    border: solid 1px #468605;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #468605;
 }
+
+.modal-options button:hover,
+.modal-options button._active {
+    background-color: #468605;
+    color: #ddd;
+}
+
+.modal-options button:active{
+    background-color: #194202;
+    color: #ddd;
+}
+
+
 
 .modal-form {
     display: none; /* Ocultos inicialmente */
@@ -65,4 +82,49 @@
 .modal-form p a {
     color: #468605;
     text-decoration: none;
+}
+
+.itemsForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.checkbox-container{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.checkbox-container input{
+    width: auto;
+    margin: 0;
+}
+
+.container-toggle-password{
+    position: relative;
+    width: 100%;
+        
+}
+
+.container-toggle-password .togglePassword, 
+.container-toggle-password .register-password,
+.container-toggle-password .confirm-register-password {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    padding: 0;
+    top: 20px;
+    background-image: url('../images/eye-open.svg');
+    background-size: contain;
+    cursor: pointer;
+}
+
+.container-toggle-password .togglePassword._show,
+.container-toggle-password .register-password._show,
+.container-toggle-password .confirm-register-password._show  {
+    background-image: url('../images/eye-closed.svg');
 }
