@@ -56,7 +56,25 @@
 
 .buttons-container{
     display: flex;
-    align-items: flex-end;
+    align-items: normal;
     gap: 10px;
     justify-content: end;
+}
+
+.shopping-cart, 
+.shopping-cart::selection,
+.shopping-cart:focus {
+    cursor: pointer;
+    border: solid 1px #468605;
+}
+
+.shopping-cart:hover{
+    border: solid 1px #183602;
+    border-radius: 5px;
+}
+    
+.shopping-cart:active{
+    background-color: #183602;
+    border: solid 1px #183602;
+    border-radius: 5px;
 }
