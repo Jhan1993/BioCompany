@@ -6,6 +6,7 @@
 .slide {
   --color: #183602;
   --hover: #183602;
+  cursor: pointer;
 }
 
 button {
@@ -21,7 +22,8 @@ button:hover, button:focus {
 
 button {
   background: none;
-  border: 2px solid;
+  border: 1px solid;
+  border-radius: 5px;
   font: inherit;
   line-height: 1;
   margin: .5em;
