@@ -61,3 +61,90 @@ btnRegister.addEventListener('click', showRegisterForm);
 document.querySelector('.togglePassword').addEventListener('click', togglePasswordVisibility);
 document.querySelector('.register-password').addEventListener('click', toggleRegisterPassword);
 document.querySelector('.confirm-register-password').addEventListener('click', toggleConfirmPassword);
+
+//formulario de registro para enviar los datos a /api/register
+document.getElementById('registerButton').addEventListener('click', async (e) => {
+    e.preventDefault(); // Evitar recarga
+
+    const name = document.getElementById('firstName').value;
+    const lastname = document.getElementById('lastName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    // Validación de contraseñas
+    if (password !== confirmPassword) {
+        alert('Las contraseñas no coinciden');
+            return;
+    }
+
+    // Enviar datos al servidor
+    try {
+        const response = await fetch('/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, lastname, email, password })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message); // Usuario registrado con éxito
+            // Limpia el formulario y cierra el modal
+            document.getElementById('firstName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('registerEmail').value = '';
+            document.getElementById('registerPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+            closeModal();
+        } else {
+            alert(result.error);
+        }
+    } catch (error) {
+        console.error('Error en el registro:', error);
+        alert('Hubo un problema al registrar el usuario. Inténtalo nuevamente.');
+    }
+});
+
+// scripts/auth-script.js
+
+// Selección del botón de inicio de sesión
+const loginButton = document.getElementById('loginButton');
+
+// Escuchar el evento de clic en el botón de inicio de sesión
+loginButton.addEventListener('click', async (e) => {
+    e.preventDefault(); // Evitar recarga de página
+
+    // Obtener los valores de los campos del formulario de inicio de sesión
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Validación de datos básicos
+    if (!email || !password) {
+        alert('Todos los campos son obligatorios');
+        return;
+    }
+
+    // Enviar datos al servidor
+    try {
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message); // Inicio de sesión exitoso
+            // Opcional: Redirigir al usuario a una página principal o perfil
+        } else {
+            alert(result.error); // Mostrar el error recibido del servidor
+        }
+    } catch (error) {
+        console.error('Error en el inicio de sesión:', error);
+        alert('Hubo un problema al iniciar sesión. Inténtalo nuevamente.');
+    }
+});
