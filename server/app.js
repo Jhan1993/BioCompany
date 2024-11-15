@@ -55,7 +55,7 @@ app.post('/api/login', (req, res) => {
         return res.status(400).json({ error: 'Todos los campos son obligatorios' });
 
     // Buscar el usuario en la base de datos por correo electrónico
-    const query = `SELECT * FROM users WHERE email = ?`;g
+    const query = `SELECT * FROM users WHERE email = ?`;
     db.query (query, [email], async (err, results) => {
         if (err){
             console.error('Error al buscar usuario:', err);
