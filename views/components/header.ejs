@@ -15,13 +15,11 @@
             <div class="buttons-container">
                 <% if (!user) { %>
                     <a href="/auth/login" class="button">Iniciar Sesión</a>
+                    <a href="/store/cart" class="button">Compras</a>
                 <% } else { %>
                     <span>Hola, <%= user.name %></span>
                     <a href="/auth/logout" class="button">Cerrar Sesión</a>
                 <% } %>
-                <a href="/store/cart" class="button">
-                    <i class="icon-shopping-cart"></i>
-                </a>
             </div>
         </div>
     </div>

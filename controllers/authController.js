@@ -46,7 +46,7 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).json({ error: 'Todos los campos son obligatorios' });
+        return res.status(400).render('pages/auth/login', { error: 'Todos los campos son obligatorios' });
     }
 
     try {
@@ -58,12 +58,12 @@ exports.loginUser = async (req, res) => {
         });
 
         if (user.length === 0) {
-            return res.status(401).json({ error: 'Correo o contraseña incorrectos' });
+            return res.status(401).render('pages/auth/login', { error: 'Correo o contraseña incorrectos' });
         }
 
         const isMatch = await bcrypt.compare(password, user[0].password);
         if (!isMatch) {
-            return res.status(401).json({ error: 'Correo o contraseña incorrectos' });
+            return res.status(401).render('pages/auth/login', { error: 'Correo o contraseña incorrectos' });
         }
 
         // Guardar datos del usuario en la sesión
