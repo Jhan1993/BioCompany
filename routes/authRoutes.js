@@ -4,12 +4,12 @@ const authController = require('../controllers/authController');
 
 //Mostrar formulario de inicio de sesion
 router.get('/auth/login', (req, res) => {
-    res.render('./pages/auth/login', { error: null }) // Renderiza la vista de login.ejs
+    res.render('./pages/auth/login', { title: 'Inicia Sesion - BioCOMPANY', error: null }) // Renderiza la vista de login.ejs
 });
 
 //Mostrar formulario de registro
 router.get('/auth/register', (req, res) => {
-    res.render('./pages/auth/register') // Renderiza la vista de register.ejs
+    res.render('./pages/auth/register', { title: 'Registro - BioCOMPANY' }) // Renderiza la vista de register.ejs
 });
 
 // Rutas de autenticación

@@ -1,0 +1,73 @@
+.login-page .container-main {
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    border: solid 2px #000000;
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.login-page .login-title {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.login-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-page input {
+    margin-bottom: 15px;
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+}
+
+.login-page .actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.link-register-form {
+    text-align: center;
+}
+
+.login-form .control.password {
+    position: relative;
+}
+
+.login-form .toggle-show {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+
+.eye-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: '';
+    background-image: url('../images/eye-open.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.login-form .toggle-show._show .eye-icon {
+    background-image: url('../images/eye-closed.svg');
+}

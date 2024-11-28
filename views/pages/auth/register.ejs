@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+    <!-- Llamamos al componente head -->
+    <%- include('../../components/head') %>
 <body>
     <main>
         <div class="register-title">
             <h1>Registrarse</h1>
         </div>
         <div class="Register-form">
-            <form action="/auth/api/register" method="POST">
+            <form action="/api/register" method="POST" id="register-form">
                 <label for="name">Nombre:</label>
                 <input type="text" name="name" id="name" required>
                 <label for="lastname">Apellido:</label>
@@ -25,5 +21,6 @@
             </form>
         </div>
     </main>
+    <script src="/js/register-ejs.js"></script>
 </body>
 </html>

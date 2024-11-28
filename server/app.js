@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session'); // Importar express-session
 const authRoutes = require('../routes/authRoutes');
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
 
@@ -23,6 +24,10 @@ app.use(session({
 
 // Middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, '../public')));
+
+//
+app.use(bodyParser.json());
+app.use(express.urlencoded({extended: true}))
 
 // Ruta principal que renderiza la página de inicio
 app.get('/', (req, res) => {

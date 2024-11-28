@@ -1,41 +1,48 @@
-// Selección del botón de inicio de sesión
-const loginButton = document.getElementById('loginButton');
+const form = document.querySelector('.form-login');
 
-// Escuchar el evento de clic en el botón de inicio de sesión
-loginButton.addEventListener('click', async (e) => {
-    e.preventDefault(); // Evitar recarga de página
+form.addEventListener('submit', async function (event) {
+    event.preventDefault();
 
-    // Obtener los valores de los campos del formulario de inicio de sesión
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const formData = {
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+    };
 
-    // Validación de datos básicos
-    if (!email || !password) {
-        alert('Todos los campos son obligatorios');
-        return;
-    }
-
-    // Enviar datos al servidor
     try {
         const response = await fetch('/api/login', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify(formData),
         });
 
-        const result = await response.json();
         if (response.ok) {
-            alert(result.message); // Inicio de sesión exitoso
-            // Opcional: Redirigir al usuario a una página principal o perfil
+            alert('Inicio de sesión exitoso');
+            form.reset();
+            window.location.href = '/';
         } else {
-            alert(result.error); // Mostrar el error recibido del servidor
+            const errorData = await response.json();
+            console.error('Revisa las credenciales ingresadas:', errorData);
+            alert('Revisa la información ingresada');
         }
     } catch (error) {
-        console.error('Error en el inicio de sesión:', error);
-        alert('Hubo un problema al iniciar sesión. Inténtalo nuevamente.');
+        console.error('Error en la solicitud:', error);
+        alert('Su correo o contraseña no es valida, verifique los datos.');
     }
 });
 
-console.log("Archivo login conectado")
+/**
+ * Funtion for Show and hide passowrd
+ * @param {*} event 
+ */
+function togglePasswordVisibility(event) 
+{   
+    event.preventDefault();
+
+    const passwordField = document.querySelector('#password');
+    passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+    document.querySelector('.toggle-show').classList.toggle('_show');
+}
+
+document.querySelector('.eye-icon').addEventListener('click', togglePasswordVisibility);

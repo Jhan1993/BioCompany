@@ -6,6 +6,7 @@ exports.registerUser = async (req, res) => {
     const { name, lastname, email, password } = req.body;
 
     // Validación de campos obligatorios
+    console.log('Formato de la informacion: ', req.body)
     if (!name || !lastname || !email || !password) {
         return res.status(400).json({ error: 'Todos los campos son obligatorios' });
     }
