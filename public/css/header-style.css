@@ -56,9 +56,20 @@
 
 .buttons-container{
     display: flex;
-    align-items: normal;
+    align-items: center;
     gap: 10px;
     justify-content: end;
+}
+
+.icon-shopping-cart::before{
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('/images/shopping-cart.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;    
 }
 
 .shopping-cart, 

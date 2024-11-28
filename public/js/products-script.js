@@ -23,19 +23,4 @@ function mostrarProductos()  {
     })
 }
 mostrarProductos()
-
-    // for(i = 0 ; i <= productosInventario.length - 1; i++){
-    //     const productoDiv = document.createElement("div");
-    //     productoDiv.classList.add("producto");
-        
-    //     productoDiv.innerHTML = `
-    //         <img src="${productosInventario[i].imagen}" alt="${productosInventario[i].nombre}">
-    //         <h2>${productosInventario[i].nombre}</h2>
-    //         <p>${productosInventario[i].descripcion}</p>
-    //         <p>Cant: ${productosInventario[i].cantidad}</p>
-    //         <p>Precio: $${productosInventario[i].precio}</p>
-    //         <button>Agregar al carrito</button>
-    //     `;
-        
-    //     contenedor.appendChild(productoDiv);
-    // }
+console.log('Archivo productsScripts')
