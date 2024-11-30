@@ -20,12 +20,15 @@ router.post('/api/register', authController.registerUser);
 
 // Cerrar sesión
 router.get('/auth/logout', (req, res) => {
+    // Almacena la página anterior desde la cabecera Referer
+    const previousPage = req.headers.referer || '/'; // Si no hay Referer, ir al index
+
     req.session.destroy((err) => {
         if (err) {
             console.error('Error al cerrar sesión:', err);
-            return res.status(500).redirect('/'); // Redirigir con un error
+            return res.status(500).redirect(previousPage); // Redirigir con un error
         }
-        res.redirect('/'); // Redirigir ala pagina principal
+        res.redirect(previousPage); // Redirigir ala pagina principal
     });
 });
 
