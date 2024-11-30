@@ -61,6 +61,24 @@
     justify-content: end;
 }
 
+.button {
+    border: solid 1px #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.button:hover {
+    border: solid 1px #183602;
+    border-radius: 5px;
+    color: #183602;
+}
+
+.button:active {
+    background-color: #183602;
+    border: solid 1px #183602;
+    color: #fff;
+}
+
 .icon-shopping-cart::before{
     content: '';
     display: inline-block;
@@ -77,11 +95,13 @@
 .shopping-cart:focus {
     cursor: pointer;
     border: solid 1px #468605;
+    padding: 2px;
 }
 
 .shopping-cart:hover{
-    border: solid 1px #183602;
+    border: solid 1px #468605;
     border-radius: 5px;
+    padding: 2px
 }
     
 .shopping-cart:active{

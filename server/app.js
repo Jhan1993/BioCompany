@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session'); // Importar express-session
 const authRoutes = require('../routes/authRoutes');
+const aboutRoutes = require('../routes/aboutRoutes');
+const storeRoutes = require('../routes/storeRoutes');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
@@ -25,7 +27,7 @@ app.use(session({
 // Middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, '../public')));
 
-//
+//Creamos la sesion con el usuario ingresado
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}))
 
@@ -34,8 +36,10 @@ app.get('/', (req, res) => {
     res.render('index', { title: 'BioCOMPANY', user: req.session.user || null });
 });
 
-// Usar rutas de autenticación
-app.use('/', authRoutes);
+//Manejo de rutas
+app.use('/', authRoutes); //Usar rutas de autenticación (/auth establecida dentro de authRoutes)
+app.use('/about', aboutRoutes); // Usar rutas de informacion"About"
+app.use('/store', storeRoutes); // Usar rutas de tienda "Store"
 
 // Iniciar el servidor
 app.listen(PORT, () => {

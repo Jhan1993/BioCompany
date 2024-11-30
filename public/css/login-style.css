@@ -8,7 +8,7 @@
 .container-form{
     display: flex;
     flex-direction: column;
-    border: solid 2px #000000;
+    border: solid 2px #468605;
     border-radius: 5px;
     padding: 20px;
     width: 100%;
@@ -38,8 +38,22 @@
     margin-bottom: 15px;
 }
 
+.login-title h1 {
+    color: #468605;
+}
+
+.actions button {
+    background-color: #468605;
+    border-color: #183602;
+    cursor: pointer;
+}
+
 .link-register-form {
     text-align: center;
+}
+
+.link-register-form a{
+    color: #468605;
 }
 
 .login-form .control.password {
