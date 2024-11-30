@@ -37,3 +37,18 @@ form.addEventListener('submit', async function (event) {
         alert('Hubo un problema al registrar. Intenta nuevamente.');
     }
 });
+
+/**
+ * Funtion for Show and hide passowrd
+ * @param {*} event 
+ */
+function togglePasswordVisibility(event) 
+{   
+    event.preventDefault();
+
+    const passwordField = document.querySelector('#password');
+    passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+    document.querySelector('.toggle-show').classList.toggle('_show');
+}
+
+document.querySelector('.eye-icon').addEventListener('click', togglePasswordVisibility);

@@ -1,24 +1,31 @@
 <header>
     <div class="header-container">
         <div class="logo-container">
-            <div class="logo">
-                <img src="/images/bioverde-logo.png" alt="logo-bioverde" width="100px" height="100px"> 
-            </div>
-            <h5>UNA FRAGANCIA ECOLOGICA</h5>
+            <a href="/">
+                <div class="logo">
+                    <img src="/images/bioverde-logo.png" alt="logo-bioverde" width="100px" height="100px"> 
+                </div>
+                <h5>UNA FRAGANCIA ECOLOGICA</h5>
+            </a>
         </div>
         <div class="link-buttons-container">
             <div class="links-container">
-                <a href="/store">Tienda</a>
-                <a href="/about">Acerca de Nosotros</a>
-                <a href="/contact">Contáctenos</a>
+                <a href="/">Tienda</a>
+                <a href="/about/about">Acerca de Nosotros</a>
+                <a href="/about/contact">Contáctenos</a>
             </div>
             <div class="buttons-container">
                 <% if (!user) { %>
                     <a href="/auth/login" class="button">Iniciar Sesión</a>
-                    <a href="/store/cart" class="button">Compras</a>
+                    <a href="/store/cart" class="shopping-cart">
+                        <img src="" alt="" class="icon-shopping-cart">
+                    </a>
                 <% } else { %>
-                    <span>Hola, <%= user.name %></span>
+                    <span>Hola <%= user.name %></span>
                     <a href="/auth/logout" class="button">Cerrar Sesión</a>
+                    <a href="/store/cart" class="shopping-cart">
+                        <img src="" alt="" class="icon-shopping-cart">
+                    </a>
                 <% } %>
             </div>
         </div>
